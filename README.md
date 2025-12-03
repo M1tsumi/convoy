@@ -1,7 +1,5 @@
 # ConvoyX
 
-[![crates.io](https://img.shields.io/crates/v/convoyx.svg)](https://crates.io/crates/convoyx)
-[![docs.rs](https://docs.rs/convoyx/badge.svg)](https://docs.rs/convoyx)
 
 Async task orchestration for Rust with pluggable backends (Redis, PostgreSQL, SQLite).
 
