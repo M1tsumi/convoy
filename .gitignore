@@ -1,0 +1,18 @@
+/target
+**/*.rs.bk
+**/*.swp
+**/*.swo
+**/.DS_Store
+
+# Local databases and logs
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# Env/config
+.env
+.env.*
+
+# Project planning docs (do not publish)
+plan.md

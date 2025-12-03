@@ -1,0 +1,37 @@
+[package]
+name = "convoy"
+version = "0.1.0"
+edition = "2021"
+
+# Human-friendly async background job processing for Rust.
+description = "Async task orchestration with Redis, PostgreSQL, and SQLite backends. Sidekiq-like background jobs for Rust applications."
+readme = "README.md"
+keywords = ["background-jobs", "queue", "async", "redis", "postgres", "sqlite"]
+categories = ["asynchronous", "concurrency", "database"]
+
+# Internal planning document; not needed in the published crate.
+exclude = ["plan.md"]
+
+[dependencies]
+async-trait = "0.1"
+chrono = { version = "0.4", features = ["serde", "clock"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "1"
+tracing = "0.1"
+uuid = { version = "1", features = ["v4", "serde"] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time", "sync"] }
+redis = { version = "0.32", features = ["aio", "tokio-comp"] }
+
+# PostgreSQL client used by the PostgresBackend implementation.
+tokio-postgres = { version = "0.7", features = ["with-chrono-0_4", "with-serde_json-1", "with-uuid-1"] }
+
+# Async SQLite driver used by the SqliteBackend implementation.
+sqlx = { version = "0.7", default-features = false, features = [
+    "runtime-tokio-rustls",
+    "sqlite",
+    "chrono",
+    "uuid",
+    "json",
+] }
+
