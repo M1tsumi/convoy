@@ -2,6 +2,7 @@
 name = "convoyx"
 version = "0.1.0"
 edition = "2021"
+licensse = "Apache-2.0"
 
 # Human-friendly async background job processing for Rust.
 description = "Async task orchestration with Redis, PostgreSQL, and SQLite backends. Sidekiq-like background jobs for Rust applications."
