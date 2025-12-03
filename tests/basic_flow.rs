@@ -4,7 +4,7 @@ use std::time::Duration;
 use async_trait::async_trait;
 use serde::{Deserialize, Serialize};
 
-use convoy::{
+use convoyx::{
     BackendConfig, Client, ClientConfig, Context, JobHandler, QueueConfig, RetryPolicy, Worker,
     WorkerConfig,
 };
@@ -30,7 +30,7 @@ impl JobHandler for CounterJob {
         "default"
     }
 
-    async fn perform(&self, _ctx: Context, args: Self::Args) -> convoy::Result<()> {
+    async fn perform(&self, _ctx: Context, args: Self::Args) -> convoyx::Result<()> {
         self.counter.fetch_add(args.amount, Ordering::SeqCst);
         Ok(())
     }

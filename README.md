@@ -1,7 +1,7 @@
-# convoy
+# ConvoyX
 
-[![crates.io](https://img.shields.io/crates/v/convoy.svg)](https://crates.io/crates/convoy)
-[![docs.rs](https://docs.rs/convoy/badge.svg)](https://docs.rs/convoy)
+[![crates.io](https://img.shields.io/crates/v/convoyx.svg)](https://crates.io/crates/convoyx)
+[![docs.rs](https://docs.rs/convoyx/badge.svg)](https://docs.rs/convoyx)
 
 Async task orchestration for Rust with pluggable backends (Redis, PostgreSQL, SQLite).
 
@@ -30,7 +30,7 @@ Add this crate to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-convoy = "0.1"
+convoyx = "0.1"
 ```
 
 ### Define a job
@@ -40,7 +40,7 @@ use async_trait::async_trait;
 use chrono::Utc;
 use serde::{Deserialize, Serialize};
 
-use convoy::{Context, JobHandler, Result};
+use convoyx::{Context, JobHandler, Result};
 
 #[derive(Debug, Serialize, Deserialize)]
 struct PrintArgs {
@@ -71,7 +71,7 @@ This is essentially what `examples/simple.rs` does:
 ```rust,no_run
 use std::time::Duration;
 
-use convoy::{
+use convoyx::{
     BackendConfig, Client, ClientConfig, QueueConfig, RetryPolicy, Worker, WorkerConfig,
 };
 
@@ -135,7 +135,7 @@ Select a backend via `BackendConfig` in your `ClientConfig` / `WorkerConfig`.
 Embedded database, no external service required.
 
 ```rust
-use convoy::BackendConfig;
+use convoyx::BackendConfig;
 
 let backend = BackendConfig::Sqlite {
     // File-backed database
@@ -203,10 +203,10 @@ CREATE TABLE convoy_jobs (
 The `Admin` helper exposes a small, monitoring-oriented surface on top of a backend:
 
 ```rust,no_run
-use convoy::{Admin, BackendConfig, ClientConfig, Client};
+use convoyx::{Admin, BackendConfig, ClientConfig, Client};
 
 #[tokio::main]
-async fn main() -> convoy::Result<()> {
+async fn main() -> convoyx::Result<()> {
     let backend = BackendConfig::Sqlite { path: "convoy.db".into() };
 
     let client = Client::new(ClientConfig { backend }).await?;
@@ -247,7 +247,7 @@ You can use this to back an HTTP API, CLI, or dashboard.
 
 ## Documentation
 
-Once published on crates.io, API documentation will be available on [docs.rs](https://docs.rs/convoy).
+Once published on crates.io, API documentation will be available on [docs.rs](https://docs.rs/convoyx).
 
 You can also build docs locally with:
 

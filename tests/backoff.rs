@@ -1,6 +1,6 @@
 use std::time::Duration;
 
-use convoy::{BackoffStrategy, RetryPolicy};
+use convoyx::{BackoffStrategy, RetryPolicy};
 
 #[test]
 fn fixed_backoff_returns_constant_delay_when_under_max_attempts() {

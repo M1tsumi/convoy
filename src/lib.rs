@@ -1,4 +1,4 @@
-//! Convoy: async task orchestration for Rust.
+//! ConvoyX: async task orchestration for Rust.
 //!
 //! This crate aims to feel approachable to humans first. The public
 //! API is intentionally small: you define jobs, enqueue them with a
